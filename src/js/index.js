@@ -1,10 +1,13 @@
-import store from "../js/store/index";
-import { addArticle } from "../js/actions/index";
+import React from "react";
+import { render } from "react-dom";
+import { Provider } from "react-redux";
 
-window.store = store;
-window.addArticle = addArticle;
+import store from "./store/index";
+import App from "./components/App";
 
-/**
- * to test actions/dispatch, use subscribe function with a callback function
- * ie. store.subscribe(() => console.log('Look ma, Redux!!'))
- */
+render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  document.getElementById("app")
+);
